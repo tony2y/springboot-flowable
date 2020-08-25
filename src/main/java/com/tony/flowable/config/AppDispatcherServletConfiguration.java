@@ -29,13 +29,9 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 @Configuration
-@ComponentScan(value = {
-        "org.flowable.ui.idm.rest.app",
-        "org.flowable.ui.common.rest.exception",
-        "org.flowable.ui.modeler.rest.app",
-        "org.flowable.ui.common.rest"},
+@ComponentScan(value = {"org.flowable.ui.modeler.rest.app"},
         excludeFilters = {
-                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = RemoteAccountResource.class),
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = DatabaseAutoConfiguration.class),
                 @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = StencilSetResource.class),
                 @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = EditorUsersResource.class),
                 @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = EditorGroupsResource.class)
@@ -64,7 +60,7 @@ public class AppDispatcherServletConfiguration implements WebMvcRegistrations {
         RequestMappingHandlerMapping requestMappingHandlerMapping = new RequestMappingHandlerMapping();
         requestMappingHandlerMapping.setUseSuffixPatternMatch(false);
         requestMappingHandlerMapping.setRemoveSemicolonContent(false);
-        Object[] interceptors = { localeChangeInterceptor() };
+        Object[] interceptors = {localeChangeInterceptor()};
         requestMappingHandlerMapping.setInterceptors(interceptors);
         return requestMappingHandlerMapping;
     }

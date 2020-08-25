@@ -38,13 +38,13 @@ flowable:
   common:
     app:
       idm-url: http://localhost:8080/expense/
-  idm:
-    app:
-      admin:
-        user-id: admin
-        password: test
-        first-name: admin
-        last-name: admin
+#  idm:
+#    app:
+#      admin:
+#        user-id: admin
+#        password: 123456
+#        first-name: admin
+#        last-name: admin
   rest:
     app:
       authentication-mode: verify-privilege

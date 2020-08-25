@@ -32,8 +32,8 @@ import org.springframework.web.servlet.DispatcherServlet;
         "org.flowable.ui.modeler.service",
         "org.flowable.ui.common.service",
         "org.flowable.ui.common.repository",
-        "org.flowable.ui.common.tenant" },excludeFilters = {
-        // 移除 RemoteIdmService
+        "org.flowable.ui.common.tenant" },
+        excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = RemoteIdmService.class),
     }
 )
