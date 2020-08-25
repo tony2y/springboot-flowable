@@ -32,3 +32,23 @@ spring:
           username: root
           password: root3306
           driver-class-name: com.mysql.jdbc.Driver
+flowable:
+  #关闭定时任务JOB
+  async-executor-activate: false
+  common:
+    app:
+      idm-url: http://localhost:8080/expense/
+  idm:
+    app:
+      admin:
+        user-id: admin
+        password: test
+        first-name: admin
+        last-name: admin
+  rest:
+    app:
+      authentication-mode: verify-privilege
+  modeler:
+    app:
+      rest-enabled: true
+  database-schema-update: true
