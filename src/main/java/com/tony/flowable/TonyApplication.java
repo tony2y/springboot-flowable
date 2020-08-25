@@ -2,9 +2,10 @@ package com.tony.flowable;
 
 
 
+import com.tony.flowable.config.AppDispatcherServletConfiguration;
+import com.tony.flowable.config.ApplicationConfiguration;
 import com.tony.flowable.config.DatabaseAutoConfiguration;
-import org.flowable.ui.modeler.conf.ApplicationConfiguration;
-import org.flowable.ui.modeler.servlet.AppDispatcherServletConfiguration;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -16,8 +17,8 @@ import org.springframework.context.annotation.Import;
         AppDispatcherServletConfiguration.class,
         DatabaseAutoConfiguration.class
 })
-@ComponentScan(basePackages = {"com.tony","org.flowable.ui.modeler", "org.flowable.ui.common"})
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+//@ComponentScan(basePackages = {"com.tony","org.flowable.ui.modeler", "org.flowable.ui.common"})
+@SpringBootApplication(scanBasePackages = "com.tony.flowable",exclude = {SecurityAutoConfiguration.class})
 public class TonyApplication {
 
     public static void main(String[] args) {

@@ -19,16 +19,16 @@ public class ProcessEngineConfig {
 
     private Logger logger = LoggerFactory.getLogger(ProcessEngineConfig.class);
 
-    @Value("${spring.datasource.dynamic.master.url}")
+    @Value("${spring.datasource.dynamic.datasource.master.url}")
     private String url;
 
-    @Value("${spring.datasource.dynamic.master.driver-class-name}")
+    @Value("${spring.datasource.dynamic.datasource.master.driver-class-name}")
     private String driverClassName;
 
-    @Value("${spring.datasource.dynamic.master.username}")
+    @Value("${spring.datasource.dynamic.datasource.master.username}")
     private String username;
 
-    @Value("${spring.datasource.dynamic.master.password}")
+    @Value("${spring.datasource.dynamic.datasource.master.password}")
     private String password;
 
 //    @Value("${spring.datasource.publicKey}")
