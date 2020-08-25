@@ -12,6 +12,7 @@
  */
 package com.tony.flowable.config;
 
+import org.flowable.ui.common.rest.idm.remote.RemoteAccountResource;
 import org.flowable.ui.modeler.rest.app.EditorGroupsResource;
 import org.flowable.ui.modeler.rest.app.EditorUsersResource;
 import org.flowable.ui.modeler.rest.app.StencilSetResource;
@@ -28,17 +29,17 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 @Configuration
-@ComponentScan(value = { "org.flowable.ui.modeler.rest.app",
-        // 不加载 rest，因为 getAccount 接口需要我们自己实现
-//        "org.flowable.ui.common.rest"
-    },excludeFilters = {
-        // 移除 EditorUsersResource 与 EditorGroupsResource，因为不使用 IDM 部分
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = EditorUsersResource.class),
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = EditorGroupsResource.class),
-        // 配置文件用自己的
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = StencilSetResource.class),
-    }
-)
+@ComponentScan(value = {
+        "org.flowable.ui.idm.rest.app",
+        "org.flowable.ui.common.rest.exception",
+        "org.flowable.ui.modeler.rest.app",
+        "org.flowable.ui.common.rest"},
+        excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = RemoteAccountResource.class),
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = StencilSetResource.class),
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = EditorUsersResource.class),
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = EditorGroupsResource.class)
+        })
 @EnableAsync
 public class AppDispatcherServletConfiguration implements WebMvcRegistrations {
 
