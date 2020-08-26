@@ -1,6 +1,5 @@
 package com.tony.flowable.controller;
 
-import liquibase.pro.packaged.U;
 import org.flowable.idm.api.User;
 import org.flowable.idm.engine.impl.persistence.entity.UserEntityImpl;
 import org.flowable.ui.common.model.UserRepresentation;
@@ -20,11 +19,10 @@ import java.util.List;
  * @date 2020/8/25 17:08
  */
 @RestController
-@RequestMapping("/api")
-public class ModelerUiController {
+@RequestMapping("/api/")
+public class RemoteAccountResource {
 
-
-    @GetMapping(value = "/rest/account", produces = "application/json")
+    @GetMapping(value = "rest/account", produces = "application/json")
     public UserRepresentation getAccount() {
 
         User user = new UserEntityImpl();

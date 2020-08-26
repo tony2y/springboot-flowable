@@ -13,8 +13,8 @@
 package com.tony.flowable.config;
 
 import org.flowable.ui.common.service.idm.RemoteIdmService;
-import org.flowable.ui.idm.servlet.ApiDispatcherServletConfiguration;
 import org.flowable.ui.modeler.properties.FlowableModelerAppProperties;
+import org.flowable.ui.modeler.servlet.ApiDispatcherServletConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
