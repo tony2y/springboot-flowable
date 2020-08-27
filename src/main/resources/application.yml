@@ -43,10 +43,16 @@ flowable:
 #        password: 123456
 #        first-name: admin
 #        last-name: admin
-  rest:
-    app:
-      authentication-mode: verify-privilege
-  modeler:
-    app:
-      rest-enabled: true
+#  rest:
+#    app:
+#      authentication-mode: verify-privilege
+#  modeler:
+#    app:
+#      rest-enabled: true
   database-schema-update: true
+mybatis:
+  mapper-locations: classpath:/META-INF/modeler-mybatis-mappings/*.xml
+  configuration-properties:
+    prefix:
+    blobType: BLOB
+    boolValue: TRUE

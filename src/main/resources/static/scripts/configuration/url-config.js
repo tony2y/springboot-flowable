@@ -22,7 +22,7 @@ FLOWABLE.APP_URL = {
 
     getAccountUrl: function () {
         // return FLOWABLE.CONFIG.contextRoot + '/app/rest/account';
-        return FLOWABLE.CONFIG.contextRoot + '/api/rest/account';
+        return FLOWABLE.CONFIG.contextRoot + '/app/rest/account';
     },
 
     getLogoutUrl: function () {

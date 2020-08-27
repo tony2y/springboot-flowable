@@ -8,6 +8,7 @@ import org.flowable.ui.common.security.SecurityUtils;
 import org.flowable.ui.common.service.exception.NotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -19,17 +20,17 @@ import java.util.List;
  * @date 2020/8/25 17:08
  */
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/app")
 public class RemoteAccountResource {
 
-    @GetMapping(value = "rest/account", produces = "application/json")
+    @RequestMapping(value = "/rest/account",method = RequestMethod.GET,produces = "application/json")
     public UserRepresentation getAccount() {
 
         User user = new UserEntityImpl();
         user.setId("admin");
         SecurityUtils.assumeUser(user);
         UserRepresentation userRepresentation = new UserRepresentation();
-        userRepresentation.setFirstName("");
+        userRepresentation.setFirstName("admin");
         userRepresentation.setLastName("admin");
         userRepresentation.setFullName("Administrator");
         userRepresentation.setId("admin");
